@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { SpeakersGallery } from "./components/SpeakersGallery/SpeakersGallery";
+import { MyFirstProvider } from "./state/MyFirstContext";
+import { BrowserRouter } from "react-router-dom";
+import { arrForNav } from "./components/NavBar/NavBarInfo";
+import NavBar from "./components/NavBar/NavBar";
+import { CompC } from "./components/DemoTheContext/CompC/CompC";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <MyFirstProvider>
+          <NavBar theArr={arrForNav} />
+          <hr />
+          <CompC />
+          <hr />
+          <SpeakersGallery />
+        </MyFirstProvider>
+      </BrowserRouter>
     </div>
   );
 }
